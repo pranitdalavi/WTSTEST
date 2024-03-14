@@ -1,0 +1,36 @@
+RewriteEngine on
+
+
+#<if "%{QUERY_STRING} =~ /^fbclid=/">
+#    RewriteCond %{HTTP_COOKIE} !^.*CustomerSource=Facebook [NC]
+#    RewriteRule ^ %{REQUEST_URI} [CO=CustomerSource:Facebook:.comfortbedsltd.co.uk]
+#    RewriteRule  .  %{REQUEST_URI}?   [R=301,L]
+#</if>
+#
+#
+#RewriteCond %{HTTPS} off
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+#
+#RewriteCond %{HTTP_HOST} !^www\. [NC]
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# remove traling slash
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+redirectMatch 301 ^/console$ /console/login.php
+
+# remove file extension
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+Redirect 301 /index  /
+
+
+# <if "%{QUERY_STRING} =~ /^fbclid=/">
+#  RewriteRule  .  %{REQUEST_URI}?   [R=301,L]
+# </if>
+
+# use routes.php file to make content if filename doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . routes.php [L]
