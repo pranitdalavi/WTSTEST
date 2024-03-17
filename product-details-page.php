@@ -463,7 +463,7 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
                 font-size: 14px;
             }
         </style>
-        <a class="bread" href="<?= DOMAIN ?>">Home</a>
+        <a class="bread" href="<?= DOMAIN ?>">ome</a>
         <?php
 
         $carry = "";
