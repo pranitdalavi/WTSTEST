@@ -232,97 +232,54 @@ require 'header.php';
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <script>
-$(document).ready(function() {
-  // Check if the product is already in the wishlist and set the heart icon accordingly
-  var isInWishlist = false; // This should be set based on your actual data
-  
-  if (isInWishlist) {
-    $('#wishlist-heart').addClass('active');
-  }
+    // Function to add product to wishlist
+    function preventRedirection(){
+        const clickedElementID = event.target.id;
 
-  // Add or remove product from the wishlist when the heart icon is clicked
-  $('#wishlist-heart').on('click', function() {
-    if ($(this).hasClass('active')) {
-      // Remove from wishlist
-      removeFromWishlist();
-    } else {
-      // Add to wishlist
-      addToWishlist();
-    }
-  });
-
-  // Function to add product to the wishlist
-  function addToWishlist() {
-    // AJAX call to add the product to the wishlist
-    // This is just a placeholder, you need to implement the actual AJAX call
-    // Example:
-    // $.ajax({
-    //   url: 'add_to_wishlist.php',
-    //   method: 'POST',
-    //   data: { productId: productId },
-    //   success: function(response) {
-    //     // Handle success
-    //     $('#wishlist-heart').addClass('active');
-    //   },
-    //   error: function(xhr, status, error) {
-    //     // Handle error
-    //   }
-    // });
-
-    // Placeholder for demonstration
-    $('#wishlist-heart').style.color = "red";
-    $('#wishlist-heart').addClass('active');
-    isInWishlist = true;
-  }
-
-});
-
-function preventRedirection(){
-    const clickedElementID = event.target.id;
-
-    if(document.getElementById(clickedElementID).style.color == "red"){
-        document.getElementById(clickedElementID).style.color = "rgb(204, 204, 204)";
-        var xhr = new XMLHttpRequest();
-    
-        xhr.open('POST', 'app/add_wishlist_to_products.php', true);
+        if(document.getElementById(clickedElementID).style.color == "red"){
+            document.getElementById(clickedElementID).style.color = "rgb(204, 204, 204)";
+            var xhr = new XMLHttpRequest();
         
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                if (xhr.status == 200) {
-                } else {
+            xhr.open('POST', 'app/add_wishlist_to_products.php', true);
+            
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                    } else {
+                    }
                 }
-            }
-        };
+            };
 
-        xhr.send("seo_url="+clickedElementID+"&value=0");
-        event.preventDefault();
-        return true;
-    }
+            xhr.send("seo_url="+clickedElementID+"&value=0");
+            event.preventDefault();
+            return true;
+        }
 
-    if(document.getElementById(clickedElementID).style.color == "rgb(204, 204, 204)"){
-        document.getElementById(clickedElementID).style.color = "red";
-        var xhr = new XMLHttpRequest();
-    
-        xhr.open('POST', 'app/add_wishlist_to_products.php', true);
+        if(document.getElementById(clickedElementID).style.color == "rgb(204, 204, 204)"){
+            document.getElementById(clickedElementID).style.color = "red";
+            var xhr = new XMLHttpRequest();
         
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState == XMLHttpRequest.DONE) {
-                if (xhr.status == 200) {
-                } else {
+            xhr.open('POST', 'app/add_wishlist_to_products.php', true);
+            
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.status == 200) {
+                    } else {
+                    }
                 }
-            }
-        };
+            };
 
-        xhr.send("seo_url="+clickedElementID+"&value=1");
-        event.preventDefault();
-        return true;
+            xhr.send("seo_url="+clickedElementID+"&value=1");
+            event.preventDefault();
+            return true;
+        }
     }
-}
 </script>
                 <div class="">
                     <div class=" panel panel-default">
