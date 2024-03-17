@@ -23,6 +23,7 @@ date_default_timezone_set('Europe/London');
 define('DT', date('Y-m-d H:i:s'));
 define('FILE', basename($_SERVER['SCRIPT_NAME']));
 
+
 $user = new App\User;
 $cartObj = new App\Cart;
 $categoryObj = new App\Category;
