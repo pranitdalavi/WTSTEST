@@ -7,8 +7,7 @@ if( strstr($url, 'blog/') ){
 	include('blog-page.php');
 	exit;
 
-} elseif(strstr($url, 'divan-beds/')){
-
+} elseif(strstr($url, "divan-beds/" )){
 	include('product-details-page.php');
 	exit;
 
@@ -20,7 +19,6 @@ elseif(strstr($url, 'ottoman-beds/')){
 
 }
 elseif(strstr($url, 'bed-frames/')){
-
     include('product-details-page.php');
     exit;
 

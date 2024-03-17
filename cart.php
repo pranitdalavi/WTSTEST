@@ -147,7 +147,7 @@ require 'header.php';
 
     <?php if (!$cartObj->countItems()) { ?>
 
-        <h1 class="text-center" style="font-weight: 600 !important;">Shopping Cart</h1>
+        <h1 class="text-center" style="font-weight: 600 !important;">Shoppig Cart</h1>
         <br>
         <br>
         <?php if (count(App\Helpers\Validation::errors()) || count(App\Helpers\Tools::flashes())) {   ?>

@@ -6,9 +6,9 @@ require __DIR__. '/../vendor/autoload.php';
 
 define('HOST', 'localhost');
 define('USERNAME', 'root');
-define('PASSWORD', '');
+define('PASSWORD', 'password');
 define('DATABASE', 'comfortbedsdatabase');
-define('DOMAIN', 'http://localhost/comfortbeds');
+define('DOMAIN', 'http://localhost:8000');
 define('COMPANY_NAME', 'Comfortbeds');
 
 define('SMTP_HOST', 'smtp.livemail.co.uk');
@@ -22,7 +22,6 @@ define('SESSION', 'NWZdfRut39VyQrPIFKoa6XCg0fgfgr5454hgtgrghhx4lJDvbFDFE4tryhf')
 date_default_timezone_set('Europe/London');
 define('DT', date('Y-m-d H:i:s'));
 define('FILE', basename($_SERVER['SCRIPT_NAME']));
-
 
 $user = new App\User;
 $cartObj = new App\Cart;
@@ -40,10 +39,9 @@ if( !$user->uniqueId() ){
 App\Helpers\Tools::boot();
 
 function redirect($url, $message = null, $type = null){
-
 	if($message){
 
-		$message = $type == 'e' ? App\Helpers\Tools::error($message)  App\Helpers\Tools::flash($message);
+		$message = $type == 'e' ? App\Helpers\Tools::error($message) : App\Helpers\Tools::flash($message);
 
 	}
 
@@ -59,6 +57,6 @@ $slug = explode('/', $_SERVER['REQUEST_URI']);
 $slug = $slug[count($slug)-1];
 
 
-
+// echo($url);die;
 
 

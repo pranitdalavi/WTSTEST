@@ -1,4 +1,6 @@
 <?php
+
+require __DIR__.'/routes.php';
 require __DIR__ . '/includes/config.php';
 
 use App\Product;
@@ -451,9 +453,8 @@ $attrImageObj = new \App\AttributeImage();
                         <div class=" mb-0" style="padding: 0 !important;border-radius:0px;">
 
                             <div class="mb-10">
-
                                 <a href="<?= DOMAIN ?>/<?= $categories[0] ?>/<?= $row->seo_url ?>">
-                                    <!-- <img src="<?= DOMAIN ?>/product-images-thumbnails/<?= $image->id ?>.<?= $image->ext ?>" data-first="<?= DOMAIN ?>/product-images-thumbnails/<?= $image->id ?>.<?= $image->ext ?>" data-second="<?= DOMAIN ?>/product-images-thumbnails/<?= $images->id ?>.<?= $images->ext ?>" alt="<?= $images->alt ?>" alt="<?= $image->alt ?>" style="width: 100%;border-radius: 10px;"> -->
+                                    <!-- <img src="<?= DOMAIN ?>/product-images-thumbnails/<?= $image->id ?>.<?= $image->ext ?>" data-first="<?= DOMAIN ?>/product-images-thumbnails/<?= $image->id ?>.<?= $image->ext ?>" data-second="<?= DOMAIN ?>/product-images-thumbnails/<?= $image->id ?>.<?= $image->ext ?>" alt="<?= $image->alt ?>" alt="<?= $image->alt ?>" style="width: 100%;border-radius: 10px;"> -->
                                     <div style='background-image: url("<?= DOMAIN ?>/product-images/<?= $image->id ?>.<?= $image->ext ?>"); background-color: #cccccc;background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;height: 250px;width: 100%;border-radius: 10px;'></div>
 
                                 </a>

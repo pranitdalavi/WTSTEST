@@ -1994,6 +1994,22 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
                                             <div style="display: inline-block">
                                                 <button type="submit" style="min-width: 160px;border-radius: 20px;" class="btn btn-default form-control" onclick="$('#payment_route').val('0')"> ADD TO CART</button>
                                             </div>
+                                            <div style="display: inline-block">
+                                            <label for="quantity">Select Quantity:</label>
+                                            <select id="quantity" name="quantity">
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                            </div>
+                                            
 
 
 
