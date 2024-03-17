@@ -1,5 +1,7 @@
 <?php
 
+
+
 use App\Product;
 use App\ProductImage;
 
@@ -194,7 +196,7 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
 
     }
     $(document).ready(function() {
-        run("<?php if (isset($_GET["size"])) {
+        run("<?php if(isset($_GET["size"])) {
                     echo $_GET["size"];
                 } ?>");
     });
@@ -1353,7 +1355,6 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
 
                                     }
 
-
                                     function calculcatePrice() {
                                         total = 0;
                                         for (let i = 0; i < prices.length; i++) {
@@ -1956,6 +1957,29 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
                                     <?php } ?>
                                 </div>
 
+                                <script>
+                                function calculatePriceAsPerQuantity() {
+                                    let total = prices.filter(price => price !== null).reduce((acc, price) => acc + parseFloat(price), 0);
+                                    total += original;
+
+                                    $("#extra").val(total);
+                                    $("#summ").show();
+                                    $("#extra_description").val(descriptions.filter(desc => desc !== undefined).join(","));
+
+                                    const quantity = parseInt($("#quantity").val());
+                                    const basePrice = (original * quantity).toFixed(2);
+                                    const optionsPrice = ((total - original) * quantity).toFixed(2);
+                                    const wasPrice = ((total + newIssue) * quantity).toFixed(2);
+                                    const totalPrice = (total * quantity).toFixed(2);
+
+                                    $("#base-price").text(basePrice);
+                                    $("#options-price").text(optionsPrice);
+                                    $("#was-price").text(wasPrice);
+                                    $("#total-price").text(totalPrice);
+
+                                    $("#price, #price-Top, #cart_price").val(total);
+                                }
+                                </script>
                                 <div class="panel panel-default mt-20">
                                     <div class="panel-heading">Summary</div>
 
@@ -1996,18 +2020,7 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
                                             </div>
                                             <div style="display: inline-block">
                                             <label for="quantity">Select Quantity:</label>
-                                            <select id="quantity" name="quantity">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>
+                                                <input onclick="calculatePriceAsPerQuantity();" type="number" name="quantity" id="quantity" value="1">
                                             </div>
                                             
 
@@ -2334,7 +2347,7 @@ foreach ($productImageObj->getAll($row->id) as $product_image) {
                 </div>
             </div>
 
-            <div class="panel panel-default mt-5" style="">
+            <div class="panel panel-default mt-5">
                 <div class="panel-body" style="padding: 0;">
                     <div class="row">
 

@@ -6,7 +6,6 @@ use App\PromoCode;
 
 $promoObj = new PromoCode;
 $productImageObj = new App\ProductImage;
-
 $productObj = new \App\Product();
 $cartObj = new \App\Cart();
 if (isset($_POST["installation"]) and $_POST["installation"] == "on") {
@@ -173,7 +172,7 @@ require 'header.php';
 
         <?php if (count(App\Helpers\Validation::errors()) || count(App\Helpers\Tools::flashes())) {   ?>
             <br>
-            <div class=" mt-10" style="">
+            <div class=" mt-10" >
                 <div class="row">
                     <div class="col-md-12">
                         <?php require __DIR__ . '/includes/flash-messages.php'; ?>

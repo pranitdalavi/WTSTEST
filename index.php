@@ -410,7 +410,7 @@ $attrObj = new \App\Attribute();
 $attrImageObj = new \App\AttributeImage();
 
 ?>
-<div class="container-fluid" style="">
+<div class="container-fluid">
     <div class="container mt-10">
         <h2 style="font-size: 30px;font-weight: 600 !important;text-align: center;margin-bottom: 35px;">Our Best Sellers</h2>
         <div class="row mb-20">

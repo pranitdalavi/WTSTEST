@@ -676,7 +676,7 @@
     </nav>
 
     <div class="container-fluid pl-0 pr-0 toggle-btn" style="display: none;">
-        <ul class="nav navbar-nav mt-0" style="">
+        <ul class="nav navbar-nav mt-0">
             <li class="link " style="font-size: 14px !important;margin: 5px;">
 
                 <a style="font-size: 14px !important;color:white !important;font-weight: 500 !important;" class="visible-sm visible-xs" href="<?php echo DOMAIN ?>">HOME</a>
@@ -835,7 +835,7 @@
             overflow: hidden;
         }
     </style>
-    <div class="pl-20 pr-20 visible-sm visible-xs" id="mySearch2" style="">
+    <div class="pl-20 pr-20 visible-sm visible-xs" id="mySearch2">
 
         <div class="row mt-25">
 
